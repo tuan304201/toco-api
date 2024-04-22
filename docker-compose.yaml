@@ -1,0 +1,14 @@
+services:
+  dev-database:
+    image: postgres:latest
+    container_name: dev-database
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Abc123456
+      POSTGRES_DB: toco-database
+    networks:
+      - toco-network
+networks:
+  toco-network:
