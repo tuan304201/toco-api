@@ -841,7 +841,7 @@
 
 "@prisma/client@^5.12.1":
   version "5.12.1"
-  resolved "https://registry.npmjs.org/@prisma/client/-/client-5.12.1.tgz"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-5.12.1.tgz#c26a674fea76754b3a9e8b90a11e617f90212f76"
   integrity sha512-6/JnizEdlSBxDIdiLbrBdMW5NqDxOmhXAJaNXiPpgzAPr/nLZResT6MMpbOHLo5yAbQ1Vv5UU8PTPRzb0WIxdA==
 
 "@prisma/debug@5.12.1":

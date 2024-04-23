@@ -21,20 +21,60 @@ model User {
   lastName String ?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  notes Note[]
+  carts Cart[]
 
   @@map("users")
 }
 
-model Note {
+
+model Product {
   id Int @id @default(autoincrement())
   title String
-  description String
+  description String ?
   url String
+  price Int
+  price_old Int ?
+  tagNew String ?
+  tagDiscount String ?
+  category Int
+  cartItems CartItem[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("products")
+}
+model Topping {
+  id Int @id @default(autoincrement())
+  title String
+  price Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+ 
+  @@map("toppings")
+}
+model Cart {
+  id Int @id @default(autoincrement())
+  cartItems CartItem[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   userId Int
   user User @relation(fields: [userId], references: [id])
 
-  @@map("notes")
+  @@map("carts")
 }
+
+model CartItem {
+  id Int @id @default(autoincrement())
+  productId Int
+  quantity Int
+  cartId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  product Product @relation(fields: [productId], references: [id])
+  cart Cart @relation(fields: [cartId], references: [id])
+
+  @@map("cart_items")
+}
+
